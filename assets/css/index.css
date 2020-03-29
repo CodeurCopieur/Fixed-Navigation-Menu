@@ -1,0 +1,76 @@
+/** colors **/
+@font-face {
+  font-family: "Omega";
+  src: url("../fonts/Omega+Sans+Regular.ttf");
+  font-weight: 100; }
+
+a {
+  text-decoration: none; }
+
+body {
+  min-height: 200vh; }
+  body #header {
+    font-family: "Omega"; }
+    body #header .nav {
+      padding: 40px 0px;
+      -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.07); }
+      body #header .nav .container {
+        max-width: 80%;
+        margin: 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        body #header .nav .container .nav__logo {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-flex: 3;
+          -ms-flex: 3;
+          flex: 3; }
+          body #header .nav .container .nav__logo span {
+            background: -webkit-gradient(linear, left top, right top, color-stop(0, #1C3D59), to(#fff));
+            background: -webkit-linear-gradient(left, #1C3D59 0, #fff);
+            background: -o-linear-gradient(left, #1C3D59 0, #fff);
+            background: linear-gradient(90deg, #1C3D59 0, #fff);
+            -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+            align-self: center;
+            display: block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            margin-right: 5px;
+            position: relative;
+            overflow: hidden; }
+          body #header .nav .container .nav__logo h1 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #1C3D59; }
+        body #header .nav .container .nav__menu {
+          -webkit-box-flex: 3;
+          -ms-flex: 3;
+          flex: 3; }
+          body #header .nav .container .nav__menu .nav__list {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center; }
+            body #header .nav .container .nav__menu .nav__list .nav__item .nav__link {
+              display: inline-block;
+              color: #1C3D59;
+              text-transform: capitalize;
+              font-size: 1.2rem;
+              -webkit-transition: all 480ms;
+              -o-transition: all 480ms;
+              transition: all 480ms; }

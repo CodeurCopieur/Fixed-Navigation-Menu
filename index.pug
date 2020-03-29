@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+html(lang="fr")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    //CSS
+    link(rel="stylesheet", href="assets/css/index.css")
+    link(rel="stylesheet", href="assets/css/normalize.css")
+    link(rel="stylesheet", href="assets/css/reset.css")
+    title Sticky Navigation Menu With Smooth Animation | CSS & JS VANILLA
+  body
+
+    header#header 
+      nav.nav
+        .container
+          .nav__logo
+            span
+            h1 Codwerk
+          .nav__menu
+            ul.nav__list
+              each val, index in [{titre:'website', link:'https://codwerk.github.io/'}, {titre:'codepen', titre:'github', link:'https://github.com/codwerk'}, {titre:'codesandbox', link:'https://codesandbox.io/u/codwerk'}, {titre:'instagram', link:'https://www.instagram.com/codwerk/'}]
+                li.nav__item
+                  a(href= val.link target="_blank").nav__link= val.titre
+      
+      section
+        h2 Je suis un Intégrateur Web (designer front-end)
+          br
+          | passionné de HTML5/CSS3, full responsive (mobile first)
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, ipsa porro voluptatem veniam vero ipsum pariatur enim modi quis eaque.
+        a(href="#" target="_blank").bnt__link Follow Me
