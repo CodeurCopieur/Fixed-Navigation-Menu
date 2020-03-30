@@ -1,7 +1,9 @@
 /** colors **/
 $blanc: #fff;
 $black: rgba(0,0,0,0.07);
+$black2: rgba(145, 158, 242, .3);
 $red: #BF1736;
+$or: #D9B166;
 $Island-1-hex: #1C3D59;
 $Island-2-hex: #025959;
 $Island-3-hex: #02735E;
@@ -14,10 +16,11 @@ $Island-5-hex: #BFA07A;
   font-weight: 100;
 }
 
-@mixin flex($display, $justifyC, $alignI){
+@mixin flex($display, $justifyC, $alignI, $flexD){
   display: $display;
   justify-content: $justifyC;
   align-items: $alignI;
+  flex-direction: $flexD;
 }
 
 a {
@@ -33,14 +36,30 @@ body {
     .nav {
       padding: 40px 0px;
       box-shadow: 0 0 20px $black;
+      z-index: 99;
+      background-color: $blanc;
+      position: relative;
+      top: 0;
+      left: 0;
+      transition: all 480ms;
 
       .container {
         max-width: 80%;
         margin: 0 auto;
-        @include flex(flex, space-between, center);
+        @include flex(flex, space-between, center, null);
+
+        .nav__burger {
+          display: none;
+          transition: all 480ms;
+          i {
+            font-size: 2rem;
+            color: $Island-1-hex;
+            cursor: pointer;
+          }
+        }
 
         .nav__logo {
-          @include flex(flex, null, null);
+          @include flex(flex, null, null, null);
           flex: 3;
           span {
             background: linear-gradient(90deg, $Island-1-hex 0, #fff);
@@ -52,6 +71,17 @@ body {
             margin-right: 5px;
             position: relative;
             overflow: hidden;
+
+            &::after {
+              content: '';
+              width: inherit;
+              height: inherit;
+              background-color: $Island-1-hex;
+              position: absolute;
+              border-radius: inherit;
+              transform: translateX(-20px);
+              transition: all 480ms;
+            }
           }
 
           h1 {
@@ -62,23 +92,178 @@ body {
         }
 
         .nav__menu {
-          flex: 3;
+          transition: all 480ms;
           .nav__list {
-            @include flex(flex, space-around, center);
+            @include flex(flex, null, center, null);
 
             .nav__item {
-              
+              margin: 5px 15px;
+              white-space: nowrap;
               .nav__link {
                 display: inline-block;
                 color: $Island-1-hex;
                 text-transform: capitalize;
                 font-size: 1.2rem;
+                font-weight: 600;
                 transition: all 480ms;
+
+                  &:hover {
+                    color: $or;
+                  }
+              }
+            }
+          }
+        }
+      }
+
+      &.sticky {
+        width: 100%;
+        position: fixed;
+        padding: 20px 0px;
+        background-color: $or;
+
+        .container {
+          .nav__logo {
+            span.fill::after {
+              transform: translateX(0px);
+            }
+
+            h1 {
+              color: $blanc;
+            }
+          }
+          .nav__menu {
+            .nav__list {
+              .nav__item {
+                .nav__link {
+                  &:hover {
+                    color: $blanc;
+                  }
+                }
               }
             }
           }
         }
       }
     }
+    @media only screen and (max-width: 800px) {
+
+            .nav {
+              padding: 30px 0px;
+
+              &.sticky {
+                padding: 10px 0px;
+                .container {
+                  .nav__menu {
+                    top: 3.575em;
+                  }
+                }
+              }
+              .container {
+                position: relative;
+                justify-content: space-between;
+                .nav__burger {
+                  display: block;
+                }
+                .nav__logo {
+                  flex: 0;
+                }
+      
+                .nav__menu  {
+                  position: fixed;
+                  top: 6.35em;
+                  left: -26rem;
+
+                  &.is-active {
+                    left: 0;
+                  }
+
+                  .nav__list {
+                    padding-top: 2em;
+                    width: 15rem;
+                    height: 50vh;
+                    background-color: $or;
+                    z-index: 1500;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+
+                    .nav__item {
+                      padding-bottom: .578em;
+                      width: 80%;
+                      border-bottom: 1px solid $Island-1-hex;
+                      margin-bottom: .75em;
+
+                      .nav__link {
+                        
+                        color: $Island-1-hex;
+
+                        &:hover {
+                          color: $Island-1-hex;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+        }
+    section {
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+      text-align: center;
+      @include flex(flex, center, center, column);
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $Island-1-hex;
+      padding: .75em;
+
+      h2 {
+        
+        font-weight: bold;
+        font-size: 2.155em;
+      }
+
+      p {
+        margin: 25px 0;
+        font-size: 1.28em;
+        line-height: 1.2;
+      }
+
+      a {
+        cursor: pointer;
+        margin-top: 30px;
+        border: 2px solid $Island-1-hex;
+        background-color: $blanc;
+        padding: 15px 20px;
+        color: $Island-1-hex;
+        font-weight: bold;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 480ms;
+
+          &:hover {
+            background-color: $Island-1-hex;
+            color: $blanc;
+          }
+      }
+
+      @media only screen and (max-width: 800px) {
+        h2 {
+          font-size: 1.75em;
+        }
+
+        p {
+          font-size: 1em;
+        }
+      }
+
+    }
+
+    
   }
 }

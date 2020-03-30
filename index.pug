@@ -5,6 +5,7 @@ html(lang="fr")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
     //CSS
+    link(rel="stylesheet", href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css")
     link(rel="stylesheet", href="assets/css/index.css")
     link(rel="stylesheet", href="assets/css/normalize.css")
     link(rel="stylesheet", href="assets/css/reset.css")
@@ -14,6 +15,8 @@ html(lang="fr")
     header#header 
       nav.nav
         .container
+          .nav__burger
+            i.icon.ion-md-menu
           .nav__logo
             span
             h1 Codwerk
@@ -26,6 +29,10 @@ html(lang="fr")
       section
         h2 Je suis un Intégrateur Web (designer front-end)
           br
-          | passionné de HTML5/CSS3, full responsive (mobile first)
-        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, ipsa porro voluptatem veniam vero ipsum pariatur enim modi quis eaque.
+          | passionné de HTML5/CSS3, Full responsive
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed iste rerum a nihil possimus et quis!
+          br
+          | Dolorum minima, esse, qui dolor earum aperiam accusantium tenetur    non fuga deleniti nemo ut?
         a(href="#" target="_blank").bnt__link Follow Me
+    
+    script(src="assets/js/index.js")
