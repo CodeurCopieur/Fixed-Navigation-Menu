@@ -12,10 +12,10 @@ window.addEventListener('scroll', (e)=> {
   const scrollValue = window.scrollY;
 
   if(scrollValue > 0){
-    selectElement('.nav').classList.add('sticky');
+    selectElement('.nav').classList.add('fixed');
     selectElement('.nav__logo span').classList.add('fill');
   }else {
-    selectElement('.nav').classList.remove('sticky');
+    selectElement('.nav').classList.remove('fixed');
     selectElement('.nav__logo span').classList.remove('fill');
   }
 
